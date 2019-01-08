@@ -6,7 +6,16 @@ namespace Lab01_AboutMeQuiz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Fun Quiz about Carlos Castillo");
+            Question1();
+
+            Question2();
+
+            Question3();
+
+            Question4();
+
+            Question5();
         }
     }
 }
