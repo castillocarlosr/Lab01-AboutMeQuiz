@@ -32,7 +32,7 @@ namespace Lab01_AboutMeQuiz
                 Console.ReadLine();
             }
 
-            //try block for question 3
+            //try-catch block for question 3
             try
             {
                 Question3();
@@ -53,9 +53,29 @@ namespace Lab01_AboutMeQuiz
                 Console.ReadLine();
             }
 
+            //Any possible answer so no try-catch block needed.
             Question4();
 
-            //Question5();
+            //Question5
+            try
+            {
+                Question5();
+            }
+            catch (FormatException error5)
+            {
+                Console.WriteLine("Exception caught.  This isn't Javascript!  You need to type in true or false.  Not truthy or falsey.");
+                Console.WriteLine(error5);
+            }
+            catch (Exception error5All)
+            {
+                Console.WriteLine("General Exception Caught.  I don't know what you typed but you broke it.  Thanks!");
+                Console.WriteLine(error5All);
+            }
+            finally
+            {
+                Console.WriteLine("You are all done!");
+                Console.ReadLine();
+            }
         }
 
         static string Question1()
@@ -104,13 +124,15 @@ namespace Lab01_AboutMeQuiz
             return input3Bool;
         }
 
-        static string Question4()
+        //With more time I could of made this into an array of strings to use a try-catch block for question 4.
+        static string Question4()  
         {
             Console.WriteLine("Pick the usual morning drink of choice for Carlos?  Type 1, 2, or 3.");
             Console.WriteLine("1) Coffee!");
             Console.WriteLine("2) Tea!");
             Console.WriteLine("3) Red-Bull");
             Console.WriteLine("4) Coke Zero");
+            Console.WriteLine("5) Something else");
             string input4 = Console.ReadLine(); //takes in user input as a string
             if (input4 == "2")
             {
@@ -122,7 +144,22 @@ namespace Lab01_AboutMeQuiz
             return input4;
         }
 
-        //question 5 Has Carlos lived in New York City?  true or false
+        static bool Question5()
+        {
+            Console.WriteLine("Carlos has lived in New York City?  \"true\" or \"false\" ");
+            string input5 = Console.ReadLine();  //Take in user input as string
+            string input5Lower = input5.ToLower();  //convert user answer to lowercase
+            bool input5Bool = Boolean.Parse(input5Lower); //conver that lowercase answer to true or false
+            if (input5Bool == true)
+            {
+                Console.WriteLine("Correct.  He lived near the Brooklyn Bridge.");
+            }
+            else //if typed false, this will display.
+                Console.WriteLine("Sorry.  He live in Brooklyn for 3 years.");
+            Console.ReadLine();
+            return input5Bool;
+        }
+
         // You answered # questions correctly
     }
 }
