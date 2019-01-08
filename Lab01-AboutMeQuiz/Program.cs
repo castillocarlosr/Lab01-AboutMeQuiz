@@ -4,6 +4,8 @@ namespace Lab01_AboutMeQuiz
 {
     class Program
     {
+        public static int counter = 0;
+
         static void Main(string[] args)
         {
             Console.WriteLine("Fun Quiz about Carlos Castillo");
@@ -55,6 +57,7 @@ namespace Lab01_AboutMeQuiz
 
             //Any possible answer so no try-catch block needed.
             Question4();
+            Console.WriteLine("On to question 4");
 
             //Question5
             try
@@ -73,12 +76,17 @@ namespace Lab01_AboutMeQuiz
             }
             finally
             {
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You are all done!");
                 Console.ReadLine();
             }
+            //This is the final counter of correct answer quessed.
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine($"You have gotten {counter} correct.");
+            Console.ReadLine();
         }
 
-        static string Question1()
+        static string Question1() //any answer.
         {
             Console.WriteLine("Does Carlos have a Mac or Windows laptop?");
             string input1 = Console.ReadLine();
@@ -86,6 +94,7 @@ namespace Lab01_AboutMeQuiz
             if (input1Caps == "MAC")
             {
                 Console.WriteLine("Correct. Carlos uses a Mac with BootCamp to run Windows.");
+                counter++;
             }
             else
                 Console.WriteLine("Sorry. Carlos uses a Mac with BootCamp to run Windows.");
@@ -101,6 +110,7 @@ namespace Lab01_AboutMeQuiz
             if (input2Number == 2)
             {
                 Console.WriteLine("Correct.  Carlos has 1 dog & 1 cat.  They snuggle together.");
+                counter++;
             }
             else
                 Console.WriteLine("Sorry.  Carlos actually has 1 dog & 1 cat.  They snuggle together.");
@@ -108,7 +118,7 @@ namespace Lab01_AboutMeQuiz
             return input2Number;
         }
 
-        static bool Question3()
+        static bool Question3() //true or false
         {
             Console.WriteLine("Carlos enjoys playing Pokemon Go.  \"true\" or \"false\".");
             string input3 = Console.ReadLine();  //Take in user input as string
@@ -117,6 +127,7 @@ namespace Lab01_AboutMeQuiz
             if (input3Bool == true)
             {
                 Console.WriteLine("Correct.  He is a level 36 Poke-Master and will one day catch them all!");
+                counter++;
             }
             else //if typed false, this will display.
                 Console.WriteLine("Sorry.  He is serious about catching them all!  POKEMON!");
@@ -137,6 +148,7 @@ namespace Lab01_AboutMeQuiz
             if (input4 == "2")
             {
                 Console.WriteLine("Correct.  He prefers a gentler drug to wake him up.");
+                counter++;
             }
             else
                 Console.WriteLine("Sorry.  He prefers a gentler drug to wake him up.");
@@ -144,7 +156,7 @@ namespace Lab01_AboutMeQuiz
             return input4;
         }
 
-        static bool Question5()
+        static bool Question5()  //true or false
         {
             Console.WriteLine("Carlos has lived in New York City?  \"true\" or \"false\" ");
             string input5 = Console.ReadLine();  //Take in user input as string
@@ -153,13 +165,12 @@ namespace Lab01_AboutMeQuiz
             if (input5Bool == true)
             {
                 Console.WriteLine("Correct.  He lived near the Brooklyn Bridge.");
+                counter++;
             }
             else //if typed false, this will display.
                 Console.WriteLine("Sorry.  He live in Brooklyn for 3 years.");
             Console.ReadLine();
             return input5Bool;
         }
-
-        // You answered # questions correctly
     }
 }
