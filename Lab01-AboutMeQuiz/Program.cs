@@ -7,10 +7,11 @@ namespace Lab01_AboutMeQuiz
         static void Main(string[] args)
         {
             Console.WriteLine("Fun Quiz about Carlos Castillo");
+            //I left question 1 without a try-catch block as any answer is possible.
             Question1();
-
             Console.WriteLine("On to question 2");
 
+            //try block for question 2
             try
             {
                 Question2();
@@ -31,10 +32,28 @@ namespace Lab01_AboutMeQuiz
                 Console.ReadLine();
             }
 
+            //try block for question 3
+            try
+            {
+                Question3();
+            }
+            catch (FormatException error3)
+            {
+                Console.WriteLine("Exception caught.  This isn't Javascript.  You need to type in true or false.");
+                Console.WriteLine(error3);
+            }
+            catch(Exception error3All)
+            {
+                Console.WriteLine("General Exception Caught.  I don't know what you typed but you broke it.  Thanks!");
+                Console.WriteLine(error3All);
+            }
+            finally
+            {
+                Console.WriteLine("On to question 4");
+                Console.ReadLine();
+            }
 
-            Question3();
-
-            //Question4();
+            Question4();
 
             //Question5();
         }
@@ -79,14 +98,30 @@ namespace Lab01_AboutMeQuiz
             {
                 Console.WriteLine("Correct.  He is a level 36 Poke-Master and will one day catch them all!");
             }
-            else
+            else //if typed false, this will display.
                 Console.WriteLine("Sorry.  He is serious about catching them all!  POKEMON!");
             Console.ReadLine();
             return input3Bool;
         }
 
-        //question 3 Pokemon go? bool
-        //question 4 choose carlos favorite morning drink, coffee, tea, energy drink, coke zero
+        static string Question4()
+        {
+            Console.WriteLine("Pick the usual morning drink of choice for Carlos?  Type 1, 2, or 3.");
+            Console.WriteLine("1) Coffee!");
+            Console.WriteLine("2) Tea!");
+            Console.WriteLine("3) Red-Bull");
+            Console.WriteLine("4) Coke Zero");
+            string input4 = Console.ReadLine(); //takes in user input as a string
+            if (input4 == "2")
+            {
+                Console.WriteLine("Correct.  He prefers a gentler drug to wake him up.");
+            }
+            else
+                Console.WriteLine("Sorry.  He prefers a gentler drug to wake him up.");
+            Console.ReadLine();
+            return input4;
+        }
+
         //question 5 Has Carlos lived in New York City?  true or false
         // You answered # questions correctly
     }
