@@ -52,5 +52,8 @@ namespace Lab01_AboutMeQuiz
         //question 4 choose carlos favorite morning drink, coffee, tea, energy drink, coke zero
         //question 5 Has Carlos lived in New York City?  true or false
         // You answered # questions correctly
+
+        /*  Test after crash
+         *  /
     }
 }
